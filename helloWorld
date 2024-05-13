@@ -1,0 +1,16 @@
+#include<stdio.h>
+int Catalan(int n){
+	int c[n+1]={0,0,1,1},i,k,temp;
+	for(i=4;i<=n;i++){
+		temp=0;
+		for(k=2;k<i;k++){
+			temp+=c[k]*c[i-k-1];
+		}
+		c[i]=temp;
+	}
+	return c[n];
+} 
+int main(){
+	printf("%d",Catalan(4));
+	return 0;
+}
